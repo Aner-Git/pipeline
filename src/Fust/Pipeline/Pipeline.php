@@ -2,37 +2,37 @@
 
 class Pipeline{
 
-	protected $firstHandler = null;
+	protected $firstTask = null;
 
 	/**
-	  * The last handler in the pipeline.
+	  * The last Task in the pipeline.
 	  */
-	protected $lastHandler = null;
+	protected $lastTask = null;
 
 	/**
-	  * The last handler that was executed.
+	  * The last Task that was executed.
 	  */ 
 	protected $current = null;
 	/**
-	  * Did all the handlers run and succeded
+	  * Did all the Tasks run and succeded
 	  */
 	protected $ended = false;
 
 	/**
-	  * Add a handler to the pipeline (and set it as the successor of the current last handler)
-	  * @param Handler the next handler 
+	  * Add a Task to the pipeline (and set it as the successor of the current last Task)
+	  * @param Task the next task 
 	  */
-	public function add(Handler $handler){
+	public function add(Task $handler){
 
-		if(is_null($this->firstHandler)){
+		if(is_null($this->firstTask)){
 
-			$this->firstHandler = $this->lastHandler = $handler;	
+			$this->firstTask = $this->lastTask = $handler;	
 
 		}else{
 		
-			$this->lastHandler->setNext($handler);	
+			$this->lastTask->setNext($handler);	
 
-			$this->lastHandler = $handler;	
+			$this->lastTask = $handler;	
 		}
 
 		return $this;
@@ -46,7 +46,7 @@ class Pipeline{
 	  */
 	public function start(array $input = array()){
 
-		$current = 	$this->current = $this->firstHandler; 
+		$current = 	$this->current = $this->firstTask; 
 
 		$status = true;	
 
@@ -77,9 +77,9 @@ class Pipeline{
 
 	/**
 	 * Get the last handler executed in the pipeline
-	 * @return mixed null|Handler 
+	 * @return mixed null|Task 
 	 */
-	public function getLastHandler(){
+	public function getLastTask(){
 
 		return $this->current;	
 	}

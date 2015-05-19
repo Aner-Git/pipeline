@@ -1,6 +1,6 @@
 <?php namespace Fust\Pipeline;
 
-abstract class Handler extends 
+abstract class Task extends 
 	AbstractHandler implements HandlerExceptionInterface 
 {
 
