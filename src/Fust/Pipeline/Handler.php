@@ -6,8 +6,8 @@ abstract class Handler implements
 {
 
 	use ListTrait;
+	use ExceptionTrait;
 
-	private $exception = null;
 
 	/**
 	 * Execute the task for this handler
@@ -39,32 +39,5 @@ abstract class Handler implements
 	 */
 	abstract protected function process(array& $input);
 
-	/**
-	  * Set Exception
-	  * @param object Exception. An exception that halted this Hanlder
-	  */
-	public function setException(\Exception $e){
-		
-		$this->exception = $e;	
-	}
-
-	/**
-	  * Get Exception
-	  * @return object Exception. An exception that halted this Hanlder
-	  */
-	public function getException(){
-	
-		return $this->exception;
-	}
-	
-	/**
-	  * Was the handler haulted by a thrown Exception
-	  * @return bool .  
-	  */
-	public function isException(){
-		
-		return ! is_null($this->exception);	
-	
-	}
 
 }
