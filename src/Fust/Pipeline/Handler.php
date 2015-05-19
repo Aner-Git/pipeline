@@ -1,11 +1,9 @@
 <?php namespace Fust\Pipeline;
 
-abstract class Handler implements
-	HandlerInterface,
-	   	HandlerExceptionInterface 
+abstract class Handler extends 
+	AbstractHandler implements HandlerExceptionInterface 
 {
 
-	use ListTrait;
 	use ExceptionTrait;
 
 

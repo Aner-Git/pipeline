@@ -1,6 +1,6 @@
 <?php namespace Fust\Pipeline;
 
-trait ListTrait{
+abstract class AbstractHandler implements HandlerInterface{
 
 	/**
 	  *The next handler.
