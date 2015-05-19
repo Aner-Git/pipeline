@@ -7,7 +7,19 @@
 
 At the basic, a pipeline is just a linked list of tasks. 
 
-So, the handler interface has 3 methods: handle, setNext, getNext 
+So, the HandlerInterface (conceptually a task) has 3 methods
+
+```php
+interface HandlerInterface{
+
+	function handle(array& $input);
+	
+	function setNext(HandlerInterface $h);	
+
+	function getNext();	
+
+}
+````
 
 
 And you can implement a 'pipeline' like this
