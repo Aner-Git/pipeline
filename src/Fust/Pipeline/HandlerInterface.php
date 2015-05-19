@@ -18,7 +18,7 @@ interface HandlerInterface{
 	/**
 	 * Sets the successor handler
 	 */
-	function setNext(Handler $h);	
+	function setNext(HandlerInterface $h);	
 
 	/**
 	 * Gets the successor handler

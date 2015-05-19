@@ -10,7 +10,7 @@ abstract class AbstractHandler implements HandlerInterface{
 	/**
 	 * Sets the successor handler
 	 */
-	public function setNext(Handler $h){
+	public function setNext(HandlerInterface $h){
 	
 		$this->successor = $h;
 	}
