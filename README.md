@@ -112,6 +112,9 @@ class MyTask2 extends Task{
 		
 		//
 		if($v->getLastTask()->isException()){
+
+			$e = $v->getLastTask()->getException();
+
 			//do something
 		}
 	}
