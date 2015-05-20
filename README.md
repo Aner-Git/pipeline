@@ -11,8 +11,6 @@ At the conceptual level, a pipeline is a linked list of tasks. As one taks is do
 
 So, we can we extend the AbstractHandler (which implements for us the ListInterface) 
 
-And to implement a 'pipeline' we extend it:
-
 ```php
 class Task1 extends AbstractHandler{
 
