@@ -1,0 +1,18 @@
+{
+    "name": "fust/pipeline",
+    "description": "The Pipeline design pattern",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aner",
+            "email": "crystalspace@myway.com"
+        }
+    ],
+	"autoload": {
+        "psr-0": {
+            "Fust\\Pipeline": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
