@@ -1,6 +1,6 @@
 <?php namespace Fust\Pipeline;
 
-abstract class AbstractHandler implements HandlerInterface{
+abstract class AbstractHandler implements HandlerInterface, ListInterface{
 
 	/**
 	  *The next handler.

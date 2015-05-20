@@ -7,32 +7,18 @@ E.g. Validate input, Save input, Update counters, Tweet, Respond to User.
 
 ## Usage
 
-At the basic, a pipeline is just a linked list of tasks. 
+At the conceptual level, a pipeline is a linked list of tasks. As one taks is done, the next is called and 'handled.' 
 
-So, the HandlerInterface (which defines the commonality for a task) has 3 methods
+So, we can we extend the AbstractHandler (which implements for us the ListInterface) 
 
-```php
-interface HandlerInterface{
-
-	function handle(array& $input);
-
-	//for list operation	
-	function setNext(HandlerInterface $h);	
-
-	//for list operation
-	function getNext();	
-
-}
-````
-
-
-And you can implement a 'pipeline' like this
+And to implement a 'pipeline' we extend it:
 
 ```php
 class Task1 extends AbstractHandler{
 
 	public  function handle(array& $input){
-		echo '1..';	
+
+		echo 'Task1 working...';	
 
 		if($this->getNext()){
 
@@ -48,7 +34,8 @@ class Task1 extends AbstractHandler{
 class Task2 extends AbstractHandler{
 
 	public function handle(array& $input){
-		echo '2..';	
+
+		echo 'Task2..';	
 
 		if($this->getNext()){
 
@@ -67,12 +54,15 @@ $t2 = new Task2;
 
 $t1->setNext($t2);
 
+//some initial input for the pipeline
 $input = [];
 
 $t1->handle($input);
 
 ```
-but this is clearly a pain! So, lets use the Task class. Conceptually a higher level vs a Handler.
+but this is clearly a pain! And still entail us with lots of work (Excption, errors, control).
+
+So, lets use the Task class. The Task class is conceptually at a higher level vs a AbstractHandler.
 We'll also use the Pipeline class to 'simplify' the pipleline operations
 
 
