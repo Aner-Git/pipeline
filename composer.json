@@ -13,6 +13,6 @@
             "Fust\\Pipeline": "src/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {}
 }
